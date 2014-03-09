@@ -1,0 +1,45 @@
+ \documentclass[a4paper,14pt]{report} %размер бумаги устанавливаем А4, шрифт 14пунктов
+ \usepackage{kmanual} %собственный стиль
+
+ %\includeonly{Title_ug, stac_ug}
+ \makeatletter
+
+ \makeatother
+
+ % колонтитулы:
+ \pagestyle{fancy}
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \renewcommand{\sectionmark}[1]{\protect\markright{\textit{#1}}}
+  \fancyfoot[R]{\thepage} %номер страницы справа внизу
+  \fancyhead[R]{\parbox[b]{300pt}{\flushright{\textbf{\textit{\\Федеральная типовая \\медицинская информационная система}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \fancyfoot[L]{\textit{Руководство пользователя} \\ \rightmark} 
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ \fancypagestyle{plain}
+
+ \fancypagestyle{firststyle} %стиль первой страницы
+ {
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \fancyhead[R]{\parbox[b]{300pt}{\flushright{\textbf{\textit{\\Федеральная типовая \\медицинская информационная система}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ }
+
+ \newcommand{\tmis}{ФТМИС}
+      
+ \begin{document}
+  \include{Title_ug}%титульный лист
+  \tableofcontents % оглавление, которое генерируется автоматически
+  \include{intr_ug} %введение и прочая вводная часть
+  \include{gen_ug} %1. Общие сведения
+  \include{cliens_ug} % 2. Картотека пациентов
+  \include{policl_ug} %3. Поликлиника
+  \include{stac_ug} %4. Стационар 
+    
+ \end{document}
