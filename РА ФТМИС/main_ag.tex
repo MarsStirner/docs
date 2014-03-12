@@ -1,175 +1,52 @@
-    \documentclass[a4paper,14pt]{report} %размер бумаги устанавливаем А4, шрифт 14пунктов
-    \usepackage[TS1,T2A]{fontenc}
-    \usepackage[utf8]{inputenc}%включаем свою кодировку: koi8-r или utf8 в UNIX, cp1251 в Windows
-    \usepackage[english,russian]{babel}%используем русский и английский языки с переносами
-    \usepackage{enumerate} %создание и автоматическая нумерация списков
-    \usepackage[pdftex]{graphicx} %рисунки
-    \graphicspath{{images/}}%путь к рисункам
-
-    \usepackage{indentfirst} %абзацные отступы
-    \usepackage{cmap} % чтобы работал поиск по PDF
-    \usepackage[14pt]{extsizes}
-    \usepackage{amssymb}
-    \usepackage{textcomp}
-    \usepackage{color} %раскраска текста и фона
-    \usepackage{colortbl} %раскраска таблиц
-    \usepackage{fancyhdr} 
-    \usepackage{topcapt} % Заголовок над таблицей
-    \usepackage{longtable} % Многостраничные таблицы
-    \usepackage [section]{placeins} % размещать все плавающие объекты в пределах подраздела
-    \usepackage{caption} %для настройки заголовков рисунков и таблиц
-    \usepackage{tabularx}
-    \usepackage{makeidx}
-    \makeindex 
+ \documentclass[a4paper,14pt]{report} %размер бумаги устанавливаем А4, шрифт 14пунктов
+ \usepackage{kmanual} % собственный стиль
+ \usepackage{makeidx}
+ \makeindex 
         
-    %\includeonly{Title_ag, other_ag}
-    \makeatletter
-    % формат "содержания"
-    \newcommand\l@sect{\@dottedtocline{1}{0em}{0em}} % собственный тип раздела
-    \renewcommand{\l@part}{\@dottedtocline{1}{0em}{0em}}
-    \renewcommand{\l@section}{\@dottedtocline{1}{0em}{1.5em}}
-    \renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{2em}}
-    \renewcommand{\l@subsubsection}{\@dottedtocline{3}{3em}{3em}}
-     %переопределение команд, чтобы названия разделов печатались с красной строки
-     \renewcommand\section{\@startsection {section}{1}{\parindent}%
-                                       {3.5ex \@plus 1ex \@minus .2ex}%
-                                       {2.3ex \@plus.2ex}%
-                                       {\normalfont\Large\bfseries}}
-     \renewcommand\subsection{\@startsection{subsection}{2}{\parindent}%
-                                         {3.25ex\@plus 1ex \@minus .2ex}%
-                                         {1.5ex \@plus .2ex}%
-                                         {\normalfont\large\bfseries}}
-     \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\parindent}%
-                                         {3.25ex\@plus 1ex \@minus .2ex}%
-                                         {1.5ex \@plus .2ex}%
-                                         {\normalfont\normalsize\bfseries}}
-     \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}% переопределение параграфа, чтобы содержимое отображалось с новой строки после заголовка
-     {3.25ex\@plus 1ex \@minus .2ex}%
-     {1.5ex \@plus .2ex}%
-     {\normalfont\normalsize\bfseries}}
-    \makeatother
+% \includeonly{other_ag}
+ \makeatletter
 
-    \usepackage[pdftex]{geometry} % Меняем поля страницы
-    \geometry{left=2.5cm}% левое поле
-    \geometry{right=1cm}% правое поле
-    \geometry{top=2.5cm}% верхнее поле
-    \geometry{bottom=2.5cm}% нижнее поле
-    \geometry{headheight = 44pt} %высота верхнего колонтитула
-    \geometry{headsep = 21pt} %отступ от колонтитула
-  %  \geometry{footskip = 15pt} %нижний колонтитул
-    
-    % создаем новый тип раздела (для "Введения" и т.п.
-    % по центру и без номера):
-    \newcounter{sect1}
-    \newcommand{\sect}[1]{\refstepcounter{sect1}\par\vspace{1cm plus 1cm minus .5cm}
-        {\Large\bf\begin{center}#1\end{center}}\par%
-        \addcontentsline{toc}{sect}{#1}\markboth{#1}{#1}
-        \nopagebreak\par}
+ \makeatother
+
+ % колонтитулы:
+ \pagestyle{fancy}
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \renewcommand{\sectionmark}[1]{\protect\markright{\textit{#1}}}
+  \fancyfoot[R]{\thepage} %номер страницы справа внизу
+  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Федеральная типовая медицинская информационная система}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \fancyfoot[L]{\textit{Руководство администратора} \\ \rightmark} 
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ \fancypagestyle{plain}
+
+ \fancypagestyle{firststyle} %стиль первой страницы
+ {
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Федеральная типовая медицинская информационная система}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ }
  
-    % колонтитулы:
-    \pagestyle{fancy}
-    \fancyhead{} %очистим хидер на всякий случай
-    \fancyfoot{} %очистим футер 
-    \renewcommand{\sectionmark}[1]{\protect\markright{\textit{#1}}}
-    \fancyfoot[R]{\thepage} %номер страницы справа внизу
-    \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Федеральная типовая медицинская информационная система}}}}}
-    \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
-    \fancyfoot[L]{\textit{Руководство администратора} \\ \rightmark} 
-    \renewcommand{\headrulewidth}{0.3pt}
-    \renewcommand{\footrulewidth}{0.3pt}
-    \addtolength{\headheight}{0.3pt} % оставляем место для линейки
-   \fancypagestyle{plain}
-
-    \fancypagestyle{firststyle} %стиль первой страницы
-    {
-     \fancyhead{} %очистим хидер на всякий случай
-     \fancyfoot{} %очистим футер 
-     \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Федеральная типовая медицинская информационная система}}}}}
-     \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
-     \renewcommand{\headrulewidth}{0.3pt}
-     \renewcommand{\footrulewidth}{0pt}
-     \addtolength{\headheight}{0.3pt} % оставляем место для линейки
-    }
-    
-    \renewcommand{\thesection}{\arabic{section}.} % Точка после номера раздела
-    \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.} % Номер подраздела
-    \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.} %Номер под-под раздела
-    \renewcommand{\theparagraph}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.} % Номер параграфа
-    \renewcommand{\thesubparagraph}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}.} % Номер подпараграфа
-  
-    \AtBeginDocument{\renewcommand\contentsname{Содержание}}
-    \addto\captionsrussian{\def\figurename{Рисунок}}
-    \linespread{1.3} % полуторный межстрочный интервал
-    %\renewcommand{\bfdefault}{b} % менее широкий жирный шрифт - !при включении опции не работает жирный курсив!
-    \righthyphenmin=2 %минимальное число букв для переноса
-    \emergencystretch=25pt % допустимая разреженность строк
-    \tolerance=10000 % граница информирования о разреженности строк
-    \raggedbottom % страницы могут быть разной высоты
-    \captionsetup[figure]{labelsep = period,justification = centering} % разделитель подписи рисунков - точка, выравнивание - по центру
-    \captionsetup[table]{labelsep=period,
-    justification=raggedright,singlelinecheck=false} % разделитель подписи таблиц - точка, выравнивание - по левому краю
-     
-    \newcommand{\secname}{\hspace{7mm}}
-    \newcommand{\btn}[1]{\fboxsep=3pt\fboxrule=0.5pt
-    \fcolorbox[gray]{0}{0.95}{#1}} % кнопка
-    \newcommand{\mm}[1]{\textbf{\textit{#1}}} % пункт главного меню
-    \newcommand{\dm}[1]{\textbf{\textit{#1}}} % прочие поля, вкладки и т.п.
-    \newcommand{\keys}[1]{\colorbox[gray]{0.9}{\texttt{#1}}} % клавиши клавиатуры
-    \newcommand{\putx}{\includegraphics{x}} % вывод изображения флажка х
-    \newcommand{\str}{$\Rightarrow$ }
-    \newcommand{\opr}[1]{\textbf{\textit{\underline{#1}}}} % определения
-    \newcommand{\code}[1]{\texttt{#1}} % текст команд и шаблонов
-    \renewcommand{\labelitemi}{$\blacktriangleright $} % переопределение маркеров списка
-    \renewcommand{\labelitemii}{$\triangleright$} % переопределение маркеров списка второго уровня
-    
-        
-    \renewenvironment{itemize}{ % параметры маркированного списка
-      \begin{list}{\labelitemi}{
-       \setlength{\itemindent}{1.5em} %величина отступа элементов списка
-        \setlength{\itemsep}{1pt}% расстояние между элементами списка
-      }
-     }{\end{list}} 
-     
-    \renewenvironment{enumerate}{ % параметры нумерованного списка
-      \begin{list}{\labelitemi}{
-        \setlength{\itemindent}{1.5em} %величина отступа элементов списка
-         \setlength{\itemsep}{1pt}% расстояние между элементами списка
-          }
-        }{\end{list}} 
+ \newcommand{\tmis}{ФТМИС} 
    
-
-   % оформление примечания:
-   \newenvironment{prim}{\tabcolsep=0.25cm \vspace{0.8em}
-    \raggedright
-    \begin{tabular}{|p{16.94cm}|}\hline \includegraphics[width = 20pt, keepaspectratio]{prim}
-    \textbf{Примечание:}}
-    {\\\hline\end{tabular}
-    \vspace{0.5em}} 
-    
-   % оформление секции Внимание:
-   \newenvironment{vnim}{\tabcolsep=0.25cm \vspace{0.8em}
-     \raggedright
-     \begin{tabular}{|p{16.94cm}|}\hline  \includegraphics[width = 14pt, keepaspectratio]{vnim}
-      \bfseries Внимание!}
-     {\\\hline\end{tabular}
-     \vspace{0.5em}} 
-
-   \setcounter{secnumdepth}{5} %глубина нумеруемых разделов
-   \setcounter{tocdepth}{3} % глубина оглавления
-   \tabcolsep=0.15cm % отступы от границ таблицы
-     
-  \begin{document}
-    \include{Title_ag}%титульный лист
-    \noindent
-    \tableofcontents % оглавление, которое генерируется автоматически
-    \indent
-    \include{intr_ag} %введение и прочая вводная часть
-    \include{gen_ag} %общие сведения о системе
-    \include{client_ag} %Настройки клиентской части
-    \include{spr_ag} %Настройка справочников
-    \include{patterns_ag} %Создание шаблонов печатных форм
-    \include{access_ag} %Настройка прав и ролей пользователей 
-    \include{other_ag} % Прочие настройки
-    \include{ind_ag} % Предметный указатель
+ \begin{document}
+  \include{Title_ag}%титульный лист
+  \noindent
+  \tableofcontents % оглавление, которое генерируется автоматически
+  \indent
+  \include{intr_ag} %введение и прочая вводная часть
+  \include{gen_ag} %общие сведения о системе
+  \include{client_ag} %Настройки клиентской части
+  \include{spr_ag} %Настройка справочников
+  \include{patterns_ag} %Создание шаблонов печатных форм
+  \include{access_ag} %Настройка прав и ролей пользователей 
+  \include{other_ag} % Прочие настройки
+  \include{ind_ag} % Предметный указатель
        
-  \end{document}
+ \end{document}
