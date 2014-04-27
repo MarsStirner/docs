@@ -1,0 +1,45 @@
+ \documentclass[a4paper,14pt]{report} %размер бумаги устанавливаем А4, шрифт 14пунктов
+ \usepackage{kmanual} % собственный стиль
+
+%  \includeonly{Title_ag, other_ag}
+ \makeatletter
+
+ \makeatother
+
+% колонтитулы:
+ \pagestyle{fancy}
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \renewcommand{\sectionmark}[1]{\protect\markright{\textit{#1}}}
+  \fancyfoot[R]{\thepage} %номер страницы справа внизу
+  \fancyhead[R]{\parbox[b]{300pt}{\flushright{\textbf{\textit{Система администрирования ЛПУ}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \fancyfoot[L]{\textit{Руководство администратора} \\ \rightmark} 
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ \fancypagestyle{plain}
+
+ \fancypagestyle{firststyle} %стиль первой страницы
+ {
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \fancyhead[R]{\parbox[b]{300pt}{\flushright{\textbf{\textit{Система администрирования ЛПУ}}}}}
+  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ }
+ 
+ \newcommand{\tmis}{ФТМИС}
+    
+\begin{document}
+ \include{Title_ag}%титульный лист
+ \tableofcontents % оглавление, которое генерируется автоматически
+ \include{intr_ag} %введение и прочая вводная часть
+ \include{gen_ag} %общие сведения о системе
+ \include{jur_ag} %подсистема журналирования 
+ \include{tfoms_ag} %подсистема выгрузки в ТФОМС
+ \include{spr_ag} %подсистема справочников
+    
+  \end{document}
