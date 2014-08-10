@@ -1,0 +1,52 @@
+ \documentclass[a4paper,14pt]{report} %размер бумаги устанавливаем А4, шрифт 14пунктов
+ \usepackage{kmanual} % собственный стиль
+ \usepackage{makeidx}
+ \makeindex 
+        
+% \includeonly{other_ag}
+ \makeatletter
+
+ \makeatother
+
+ % колонтитулы:
+ \pagestyle{fancy}
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \renewcommand{\sectionmark}[1]{\protect\markright{#1}}
+  \fancyfoot[R]{\color{dblue}\thepage} %номер страницы справа внизу
+  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{\color{dblue}Медицинская информационная система}}}}}
+  \fancyhead[L]{\includegraphics[height = 35pt, keepaspectratio]{logo}}
+  \fancyfoot[L]{\textit{\color{dblue}Руководство администратора \rule{0pt}{4mm}} \\ {\textbf{\textit{\textcolor{dblue}{\nouppercase{\rightmark}}}}}} 
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ \fancypagestyle{plain}
+
+ \fancypagestyle{firststyle} %стиль первой страницы
+ {
+  \fancyhead{} %очистим хидер на всякий случай
+  \fancyfoot{} %очистим футер 
+  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{\color{dblue}{Медицинская информационная система}}}}}}
+  \fancyhead[L]{\includegraphics[height = 35pt, keepaspectratio]{logo}}
+  \renewcommand{\headrulewidth}{0.3pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+ }
+ 
+ \newcommand{\tmis}{МИС} 
+   
+ \begin{document}
+  \include{Title_ag}%титульный лист
+  \noindent
+  \tableofcontents % оглавление, которое генерируется автоматически
+  \indent
+  \include{intr_ag} %введение и прочая вводная часть
+  \include{gen_ag} %общие сведения о системе
+  \include{client_ag} %Настройки клиентской части
+  \include{spr_ag} %Настройка справочников
+  \include{patterns_ag} %Создание шаблонов печатных форм
+  \include{access_ag} %Настройка прав и ролей пользователей 
+  \include{other_ag} % Прочие настройки
+  \include{ind_ag} % Предметный указатель
+       
+ \end{document}

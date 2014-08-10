@@ -7,29 +7,29 @@
  \makeatother
 
  % колонтитулы:
- \pagestyle{fancy}
-  \fancyhead{} %очистим хидер на всякий случай
-  \fancyfoot{} %очистим футер 
-  \renewcommand{\sectionmark}[1]{\protect\markright{\textit{#1}}}
-  \fancyfoot[R]{\thepage} %номер страницы справа внизу
-  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Медицинская информационная система}}}}}
-  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
-  \fancyfoot[L]{\textit{Руководство пользователя} \\ \rightmark} 
-  \renewcommand{\headrulewidth}{0.3pt}
-  \renewcommand{\footrulewidth}{0.3pt}
-  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
- \fancypagestyle{plain}
-
- \fancypagestyle{firststyle} %стиль первой страницы
- {
-  \fancyhead{} %очистим хидер на всякий случай
-  \fancyfoot{} %очистим футер 
-  \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{Медицинская информационная система}}}}}
-  \fancyhead[L]{\includegraphics[width = 150pt, keepaspectratio]{korus}}
-  \renewcommand{\headrulewidth}{0.3pt}
-  \renewcommand{\footrulewidth}{0pt}
-  \addtolength{\headheight}{0.3pt} % оставляем место для линейки
- }
+   \fancypagestyle{firststyle} %стиль первой страницы
+   {
+    \fancyhead{} %очистим хидер на всякий случай
+    \fancyfoot{} %очистим футер 
+    \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{\color{dblue}{Медицинская информационная система}}}}}}
+    \fancyhead[L]{\includegraphics[height = 35pt, keepaspectratio]{logo}}
+    \renewcommand{\headrulewidth}{0.3pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+   }
+   %остальные страницы
+  \pagestyle{fancy}
+   \fancyhead{} %очистим хидер на всякий случай
+   \fancyfoot{} %очистим футер 
+   \renewcommand{\sectionmark}[1]{\protect\markright{#1}}
+   \fancyfoot[R]{\color{dblue}{\thepage}} %номер страницы справа внизу
+   \fancyhead[R]{\parbox[b]{200pt}{\flushright{\textbf{\textit{\color{dblue}{Медицинская информационная система}}}}}}
+   \fancyhead[L]{\includegraphics[height = 35pt, keepaspectratio]{logo}}
+   \fancyfoot[L]{\textit{\color{dblue}{Руководство пользователя \rule{0pt}{4mm}}} \\ {\textbf{\textit{\textcolor{dblue}{\nouppercase{\rightmark}}}}}} 
+   \renewcommand{\headrulewidth}{0.3pt}
+   \renewcommand{\footrulewidth}{0.3pt}
+   \addtolength{\headheight}{0.3pt} % оставляем место для линейки
+  \fancypagestyle{plain}
  
  \newcommand{\tmis}{МИС} 
     

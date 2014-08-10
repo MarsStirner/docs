@@ -15,7 +15,7 @@
  \RequirePackage{fancyhdr} 
  \RequirePackage{topcapt} % Заголовок над таблицей
  \RequirePackage{longtable} % Многостраничные таблицы
- \RequirePackage [section]{placeins} % размещать все плавающие объекты в пределах подраздела
+ \RequirePackage[section]{placeins} % размещать все плавающие объекты в пределах подраздела
  \RequirePackage{caption} %для настройки заголовков рисунков и таблиц
  
  \RequirePackage[pdftex]{geometry} % Меняем поля страницы
@@ -83,6 +83,10 @@
  \righthyphenmin=2 %минимальное число букв для переноса
  \emergencystretch=25pt % допустимая разреженность строк
  \tolerance=10000 % граница информирования о разреженности строк
+ %подавление висячих строк.
+  \clubpenalty=10000
+  \widowpenalty=10000
+  
  \raggedbottom % страницы могут быть разной высоты
  \captionsetup[figure]{labelsep = period,justification = centering} % разделитель подписи рисунков - точка, выравнивание - по центру
  \captionsetup[table]{labelsep=period,
@@ -100,6 +104,17 @@
  \newcommand{\code}[1]{\texttt{#1}} % текст команд и шаблонов
  \renewcommand{\labelitemi}{$\mathsurround=0pt \blacktriangleright $} % переопределение маркеров списка
  \renewcommand{\labelitemii}{$\mathsurround=0pt \triangleright$} % переопределение маркеров списка второго уровня
+ 
+ \definecolor{dblue}{rgb}{0.06,0.27,0.35} %определяем новый именованный цвет  
+  
+  \def\headrule{{\color{dblue}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+  \hrule\@height\headrulewidth\@width\headwidth
+  \vskip-\headrulewidth}} %переопределяем цвет линий верхнего колонтитула
+  
+   \def\footrule{{\color{dblue}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+   \hrule\@height\footrulewidth\@width\headwidth
+   \vskip-\footrulewidth}} %переопределяем цвет линий нижнего колонтитула
+  
     
  % создаем новый тип раздела (для "Введения" и т.п.
  % по центру и без номера):

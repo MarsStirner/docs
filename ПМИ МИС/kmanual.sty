@@ -26,7 +26,7 @@
   \geometry{headheight = 44pt} %высота верхнего колонтитула
   \geometry{headsep = 21pt} %отступ от колонтитула
   %\geometry{footskip = 15pt} %нижний колонтитул
-    
+      
  % формат "содержания"
  \newcommand\l@sect{\@dottedtocline{1}{0em}{0em}} % собственный тип раздела
  \renewcommand{\l@part}{\@dottedtocline{1}{0em}{0em}}
@@ -83,6 +83,11 @@
  \righthyphenmin=2 %минимальное число букв для переноса
  \emergencystretch=25pt % допустимая разреженность строк
  \tolerance=10000 % граница информирования о разреженности строк
+ 
+ %подавление висячих строк.
+ \clubpenalty=10000
+ \widowpenalty=10000
+ 
  \raggedbottom % страницы могут быть разной высоты
  \captionsetup[figure]{labelsep = period,justification = centering} % разделитель подписи рисунков - точка, выравнивание - по центру
  \captionsetup[table]{labelsep=period,
@@ -102,7 +107,17 @@
  
  \renewcommand{\labelitemi}{$\mathsurround=0pt \blacktriangleright $} % переопределение маркеров списка
  \renewcommand{\labelitemii}{$\mathsurround=0pt \triangleright$} % переопределение маркеров списка второго уровня
-    
+ 
+ \definecolor{dblue}{rgb}{0.06,0.27,0.35} %определяем новый именованный цвет  
+ 
+ \def\headrule{{\color{dblue}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+ \hrule\@height\headrulewidth\@width\headwidth
+ \vskip-\headrulewidth}} %переопределяем цвет линий верхнего колонтитула
+ 
+  \def\footrule{{\color{dblue}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+  \hrule\@height\footrulewidth\@width\headwidth
+  \vskip-\footrulewidth}} %переопределяем цвет линий нижнего колонтитула
+ 
  % создаем новый тип раздела (для "Введения" и т.п.
  % по центру и без номера):
  \newcounter{sect1}
