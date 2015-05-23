@@ -11,7 +11,18 @@
 
     \vspace*{1em}
     \Large{\textbf{РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ}}
+    
+    \vspace*{0.5em}
+    \ifthenelse{\isnamedefined{regversion}}
+    {\regversion}{}
+    \ifthenelse{\isnamedefined{doctorversion}}
+    {\doctorversion}{}
+    \ifthenelse{\isnamedefined{diagnversion}}
+    {\diagnversion}{}
+    \ifthenelse{\isnamedefined{assistversion}}
+    {\assistversion}{}
     }}
+  
     \end{center}
 
     \vspace{\fill}
@@ -19,9 +30,9 @@
     \begin{flushleft}
     Дата создания:  15.07.14 \\
  %   \vspace{1em}
-    Последнее обновление:  15.07.14\\
+    Последнее обновление:  20.04.15\\
  %   \vspace{1em}
-    Версия:  1.0\\
+    Версия:  1.2\\
     \end{flushleft}
     \clearpage
     \end{titlepage}

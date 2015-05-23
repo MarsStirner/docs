@@ -1,11 +1,11 @@
- \RequirePackage[TS1,T2A]{fontenc}
- \RequirePackage[14pt]{extsizes}
+ \RequirePackage{cmap}
  \RequirePackage[utf8]{inputenc}%включаем свою кодировку: koi8-r или utf8 в UNIX, cp1251 в Windows
+ \RequirePackage[TS1,T2A]{fontenc}
  \RequirePackage[english,russian]{babel}%используем русский и английский языки с переносами
+ \RequirePackage[14pt]{extsizes}
  \RequirePackage{enumerate} %создание и автоматическая нумерация списков
  \RequirePackage[pdftex]{graphicx} %рисунки
  \graphicspath{{images/}}%путь к рисункам
- 
  \RequirePackage{indentfirst} %абзацные отступы
  \RequirePackage{cmap} % чтобы работал поиск по PDF
  \RequirePackage{amssymb}
@@ -17,6 +17,8 @@
  \RequirePackage{longtable} % Многостраничные таблицы
  \RequirePackage [section]{placeins} % размещать все плавающие объекты в пределах подраздела
  \RequirePackage{caption} %для настройки заголовков рисунков и таблиц
+ \RequirePackage{xifthen}
+ 
  
  \RequirePackage[pdftex]{geometry} % Меняем поля страницы
   \geometry{left=2.5cm}% левое поле
@@ -33,6 +35,7 @@
  \renewcommand{\l@section}{\@dottedtocline{1}{0em}{1.5em}}
  \renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{2em}}
  \renewcommand{\l@subsubsection}{\@dottedtocline{3}{3em}{3em}}
+ \renewcommand{\l@paragraph}{\@dottedtocline{4}{4em}{3.5em}}
     
  %переопределение команд, чтобы названия разделов печатались с красной строки
  \renewcommand\section{\@startsection {section}{1}{\parindent}%
@@ -74,7 +77,7 @@
  \newcommand{\secname}{\hspace{7mm}}
  
  \setcounter{secnumdepth}{5} %глубина нумеруемых разделов
- \setcounter{tocdepth}{3} % глубина оглавления
+ \setcounter{tocdepth}{4} % глубина оглавления
  \tabcolsep=0.15cm % отступы от границ таблицы
  \AtBeginDocument{\renewcommand\contentsname{Содержание}}
  \addto\captionsrussian{\def\figurename{Рисунок}}
