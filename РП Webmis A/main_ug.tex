@@ -36,21 +36,32 @@
   \definecolor{darkblue}{rgb}{0,0.06,0.3} % цвет ссылок
   \hypersetup{pdfstartview=FitH, linkcolor=darkblue, colorlinks=true}
   \newcommand{\tmis}{МИС Амбулатория}
+  \newcommand{\tmisr}{МИС Амбулатория}
+  \newcommand{\tmisd}{МИС Амбулатория}
+  \newcommand{\tmisv}{МИС Амбулатория}
+  \newcommand{\tmist}{МИС Амбулатория}
+  \newcommand{\tmisp}{МИС Амбулатория}
   
-  \newcommand{\fullversion}{Полная версия} 
+  %\newcommand{\fullversion}{Полная версия} 
   %\newcommand{\regversion}{Рабочее место  регистратора}
   %\newcommand{\doctorversion}{Рабочее место врача поликлиники}
   %\newcommand{\diagnversion}{Рабочее место врача диагностики}
   %\newcommand{\assistversion}{Рабочее место медсестры - ассистента врача}
+  \newcommand{\kassaversion}{Рабочее место кассира} 
       
  \begin{document}
   \include{Title_ug}%титульный лист
   \tableofcontents % оглавление, которое генерируется автоматически
   \include{intr_ug} %введение и прочая вводная часть
   \include{gen_ug} %1. Общие сведения
+  \ifthenelse{\not \isnamedefined{kassaversion}}{
   \include{cliens_ug} % 2. Картотека пациентов
   \include{policl_ug} %3. Расписание
   \include{event_ug} %4. Обслуживание пациентов
-  \include{report_ug} %5. Аналитические отчеты
+  }{}
+  \ifthenelse{\isnamedefined{fullversion} \OR \isnamedefined{kassaversion}}{
+  \include{kassa_ug} %5. Выполнение кассовых операций
+  }{}
+  \include{report_ug} %6. Аналитические отчеты
 
  \end{document}
